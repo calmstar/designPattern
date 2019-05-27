@@ -1,9 +1,6 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: ASUS
- * Date: 2019/5/21
- * Time: 16:49
  * 简单工厂模式
  */
 interface people {
@@ -11,24 +8,24 @@ interface people {
 }
 
 class Man implements people {
-    public function say () {
+    public function say() {
         // TODO: Implement say() method.
         var_dump('man say');
     }
 }
 
 class Woman implements people {
-    public function say () {
+    public function say() {
         var_dump('woman say');
     }
 }
 
 class SimpleFactory {
-    public static function createMan () {
+    public static function createMan() {
         return new Man();
     }
 
-    public static function createWoman () {
+    public static function createWoman() {
         return new Woman();
     }
 }

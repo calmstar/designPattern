@@ -1,26 +1,24 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: ASUS
- * Date: 2019/5/21
- * Time: 17:12
  * 注册树模式
  */
 class register {
     protected static $objects;
 
-    public static function set ($alias, $object) {
+    public static function set($alias, $object) {
         self::$objects[$alias] = $object;
     }
 
-    public static function unset ($alias) {
+    public static function unset($alias) {
         unset(self::$objects[$alias]);
     }
 
-    public static function get ($alias) {
+    public static function get($alias) {
         return self::$objects[$alias];
     }
 }
+
 register::set('name', 'wenxing');
 var_dump(register::get('name'));
 register::unset('name');

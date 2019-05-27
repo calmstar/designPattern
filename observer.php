@@ -1,44 +1,45 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: ASUS
- * Date: 2019/5/21
- * Time: 17:44
  * 观察者模式
  */
 abstract class EventGenerator {
     private $observers = array();
-    public function addObserver (Observer $observer) {
+
+    public function addObserver(Observer $observer) {
         $this->observers[] = $observer;
     }
 
-    public function notify () {
+    public function notify() {
         foreach ($this->observers as $observer) {
             $observer->update();
         }
     }
 }
 
-interface Observer{
+interface Observer {
     function update();//这里就是在事件发生后要执行的逻辑
 }
 
-class Event extends EventGenerator{
-    function triger () {
+class Event extends EventGenerator {
+    function triger() {
         var_dump('event');
     }
 }
+
 // 具体观察者
-class Observer1 implements Observer{
-    function update () {
+class Observer1 implements Observer {
+    function update() {
         var_dump('逻辑1');
     }
 }
-class Observer2 implements Observer{
-    function update () {
+
+class Observer2 implements Observer {
+    function update() {
         var_dump('逻辑2');
     }
 }
+
 $event = new Event();
 $event->addObserver(new Observer1());
 $event->addObserver(new Observer2());
